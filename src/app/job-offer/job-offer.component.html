@@ -1,0 +1,55 @@
+<div class="jobs">
+    <div class="job__offer" *ngFor="let job of jobOfferList | filterJobOffers:searchTags">
+
+        <div class="job__top-section">
+          <div class="job__logo"></div>
+  
+          <div class="job__content-section">
+            <div class="job__info job__margin">
+              <p class="job__info-title job__text">{{ job.company }}</p>
+              <span class="job__info-tag" *ngIf="job.newOffer">New!</span>
+              <span class="job__info-tag" *ngIf="job.featured">Featured</span>
+            </div>
+        
+            <p class="job__name job__section job__text">{{ job.position }}</p>
+        
+            <div class="job__details job__margin">
+              <span class="job__details-element">{{ job.postedAt }}</span>
+              <span class="job__details-element">{{ job.contract }}</span>
+              <span class="job__details-element">{{ job.location }}</span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="job__line">
+
+        <div class="job__bottom-section">
+          <div class="job__technologies job__margin">
+            <span 
+              class="job__technologies-tag"
+              (click)="addToSearchList(job.role)">
+              {{ job.role }}
+            </span>
+            <span 
+              class="job__technologies-tag" 
+              (click)="addToSearchList(job.level)">
+              {{ job.level }}
+            </span>
+            <span
+              (click)="addToSearchList(language)" 
+              class="job__technologies-tag" 
+              *ngFor="let language of job.languages">
+              {{ language }}
+            </span>
+            <span
+              (click)="addToSearchList(tool)"
+              class="job__technologies-tag"
+              *ngFor="let tool of job.tools">
+              {{ tool }}
+            </span>
+          </div>
+        </div>
+    
+      </div>
+</div>
+
