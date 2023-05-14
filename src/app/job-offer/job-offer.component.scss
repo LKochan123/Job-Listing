@@ -7,9 +7,10 @@
         position: absolute;
         width: 50px;
         height: 50px;
-        // background-image: url('../images/photosnap.svg');
+        background-image: url('../images/manage.svg');
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
         border-radius: 50%;
         top: -25px;
     }
@@ -23,14 +24,26 @@
     }
 
     &__offer {
+        position: relative;
         width: 100%;
         height: auto;
 
-        margin: 3em 0;
+        margin: 4em 0;
         padding: 1.5em;
         border-radius: 8px;
         background-color: var(--white-color);
-        box-shadow: -11px 14px 13px -3px var(--shadow-color);
+        box-shadow: 11px 14px 13px -3px var(--shadow-color);
+
+        &.featured::before {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--main-color);
+            overflow: hidden;
+        }
     }
 
     &__info {
@@ -55,7 +68,13 @@
     }
 
     &__name {
-        color: var(--black-color);
+        color: var(--very-dark-main-color);
+        transition: color .3s;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--main-color);
+        }
     }
 
     &__details {
@@ -92,6 +111,7 @@
 @media (min-width: 768px) {
     .job {
         &__offer {
+            margin: 3em 0;
             display: flex;
             flex-direction: row;
             justify-content: space-between;

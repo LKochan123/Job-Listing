@@ -27,4 +27,9 @@ export class JobOfferComponent implements OnInit {
       this.jobOfferService.addToSearchList(element);
     }
   }
+
+  babla(a: any) {
+    console.log(a)
+  }
+
 }
