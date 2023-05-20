@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Users are able to filter job offers by selecting tags.
 
-### Live demo [here](https://magical-tanuki-96d393.netlify.app)
+### Live demo [here](https://job-listing-angular.netlify.app/)
 
 ### Screenshots
 
