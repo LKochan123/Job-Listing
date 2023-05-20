@@ -5,7 +5,10 @@
       *ngFor="let job of jobsHttp | filterJobOffers:searchTags">
 
         <div class="job__top-section">
-          <div class="job__logo"></div>
+          <div 
+            class="job__logo" 
+            [style.background-image]="'url('+job.logo+')'">
+          </div>
   
           <div class="job__content-section">
             <div class="job__info job__margin">
