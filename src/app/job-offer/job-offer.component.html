@@ -2,7 +2,7 @@
     <div 
       class="job__offer"
       [ngClass]="{'featured': job.featured}"
-      *ngFor="let job of jobOfferList | filterJobOffers:searchTags">
+      *ngFor="let job of jobsHttp | filterJobOffers:searchTags">
 
         <div class="job__top-section">
           <div class="job__logo"></div>
@@ -10,7 +10,7 @@
           <div class="job__content-section">
             <div class="job__info job__margin">
               <p class="job__info-title job__text">{{ job.company }}</p>
-              <span class="job__info-tag" *ngIf="job.newOffer">New!</span>
+              <span class="job__info-tag" *ngIf="job.new">New!</span>
               <span class="job__info-tag" *ngIf="job.featured">Featured</span>
             </div>
         
@@ -59,4 +59,3 @@
     
       </div>
 </div>
-

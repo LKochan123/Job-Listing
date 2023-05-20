@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { JobOfferService } from './job-offer.service';
-import { JobOffer } from './job-offer.model';
+import { JobOffer } from './job-offer';
 import { SearchService } from '../search/search.service';
 
 @Component({
@@ -12,13 +12,16 @@ import { SearchService } from '../search/search.service';
 export class JobOfferComponent implements OnInit {
 
   searchTags!: string[];
-  jobOfferList!: JobOffer[];
+  jobsHttp: JobOffer[] = [];
 
   constructor(private jobOfferService: JobOfferService,
     private searchService: SearchService) { }
 
   ngOnInit() {
-    this.jobOfferList = this.jobOfferService.getAllJobOffers();
+    this.jobOfferService.getJobsByHttp().subscribe(data => {
+      this.jobsHttp = data;
+    })
+
     this.searchTags = this.searchService.getAllFilters();
   }
 
@@ -26,10 +29,6 @@ export class JobOfferComponent implements OnInit {
     if (!this.searchService.search_list.includes(element)) {
       this.jobOfferService.addToSearchList(element);
     }
-  }
-
-  babla(a: any) {
-    console.log(a)
   }
 
 }
